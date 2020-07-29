@@ -18,9 +18,10 @@ class CategoriesScreen extends StatelessWidget {
               StretchMode.zoomBackground,
             ],
           ),
-          title: Text('Categories'),
+          title: Text('DeliMeal', style: Theme.of(context).textTheme.title),
         ),
         SliverGrid(
+          
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
@@ -28,8 +29,10 @@ class CategoriesScreen extends StatelessWidget {
             maxCrossAxisExtent: 200.0,
           ),
           delegate: SliverChildBuilderDelegate(
+            
             (BuildContext context, int index) {
               return Container(
+                padding: EdgeInsets.all(10.0),
                 child: CategoryItem(title: CategoryData[index].title, color: CategoryData[index].color),
               );
             },
