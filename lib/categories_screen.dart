@@ -8,20 +8,17 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: <Widget>[
-        SliverAppBar(
-          pinned: false,
-
-
-          floating: true,
-          flexibleSpace: FlexibleSpaceBar(
-            stretchModes: const <StretchMode>[
-              StretchMode.zoomBackground,
-            ],
-          ),
-          title: Text('DeliMeal', style: Theme.of(context).textTheme.title),
-        ),
+//        SliverAppBar(
+//          pinned: false,
+//          floating: true,
+//          flexibleSpace: FlexibleSpaceBar(
+//            stretchModes: const <StretchMode>[
+//              StretchMode.zoomBackground,
+//            ],
+//          ),
+//          title: Text('DeliMeal', style: Theme.of(context).textTheme.title),
+//        ),
         SliverGrid(
-          
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
@@ -29,11 +26,13 @@ class CategoriesScreen extends StatelessWidget {
             maxCrossAxisExtent: 200.0,
           ),
           delegate: SliverChildBuilderDelegate(
-            
             (BuildContext context, int index) {
               return Container(
                 padding: EdgeInsets.all(10.0),
-                child: CategoryItem(title: CategoryData[index].title, color: CategoryData[index].color),
+                child: CategoryItem(
+                    id: CategoryData[index].id,
+                    title: CategoryData[index].title,
+                    color: CategoryData[index].color),
               );
             },
             childCount: CategoryData.length,
